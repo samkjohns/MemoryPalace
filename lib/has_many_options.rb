@@ -1,6 +1,6 @@
-require_relative 'assoc_options'
+require_relative 'association_options'
 
-class HasManyOptions < AssocOptions
+class HasManyOptions < AssociationOptions
   def initialize(name, self_class_name, options = {})
     @primary_key = options[:primary_key] || :id
 

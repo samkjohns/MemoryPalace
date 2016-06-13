@@ -1,6 +1,6 @@
-require_relative 'assoc_options'
+require_relative 'association_options'
 
-class BelongsToOptions < AssocOptions
+class BelongsToOptions < AssociationOptions
   def initialize(name, options = {})
     @primary_key = options[:primary_key] || :id
     @foreign_key = options[:foreign_key] || "#{name}_id".to_sym
