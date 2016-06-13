@@ -1,2 +1,2 @@
-SQL_FILE = 'db/cats.sql'
-DB_FILE = 'db/cats.db'
+SQL_FILE = 'db/pokemon.sql'
+DB_FILE = 'db/pokemon.db'

@@ -1,5 +1,5 @@
 require 'sqlite3'
-require_relative '../palace_config'
+require_relative '../db_config'
 
 PRINT_QUERIES = ENV['PRINT_QUERIES'] == 'true'
 ROOT_FOLDER = File.join(File.dirname(__FILE__), '..')

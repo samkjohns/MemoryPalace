@@ -1,4 +1,4 @@
 .byebug_history
 .DS_Store
 test.rb
-db/pokemon.sql
+db/

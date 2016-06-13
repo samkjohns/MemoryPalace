@@ -1,8 +1,6 @@
 require_relative 'db_connection'
 require 'active_support/inflector'
 
-
-
 class SQLObject
 
   def self.columns
@@ -104,5 +102,17 @@ class SQLObject
 
   def save
     id.nil? ? insert : update
+  end
+
+  def self.find(id)
+    query = <<-SQL
+      SELECT
+        #{table_name}.*
+      FROM
+        #{table_name}
+      WHERE
+        #{table_name}.id = #{id}
+    SQL
+    parse_all(DBConnection.execute(query)).first
   end
 end
