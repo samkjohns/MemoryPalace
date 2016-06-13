@@ -1,7 +1,10 @@
 require_relative 'db_connection'
+require_relative 'searchable'
 require 'active_support/inflector'
 
 class SQLObject
+
+  extend Searchable
 
   def self.columns
     query = <<-SQL
@@ -104,15 +107,4 @@ class SQLObject
     id.nil? ? insert : update
   end
 
-  def self.find(id)
-    query = <<-SQL
-      SELECT
-        #{table_name}.*
-      FROM
-        #{table_name}
-      WHERE
-        #{table_name}.id = #{id}
-    SQL
-    parse_all(DBConnection.execute(query)).first
-  end
 end
