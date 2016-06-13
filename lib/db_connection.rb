@@ -1,4 +1,5 @@
 require 'sqlite3'
+require_relative '../palace_config'
 
 PRINT_QUERIES = ENV['PRINT_QUERIES'] == 'true'
 ROOT_FOLDER = File.join(File.dirname(__FILE__), '..')
@@ -12,7 +13,21 @@ class DBConnection
     @db
   end
 
-  def instance; @db; end
+  def self.reset
+    commands = [
+      "rm '#{DB_FILE}'",
+      "cat '#{SQL_FILE}' | sqlite3 '#{DB_FILE}'"
+    ]
+
+    commands.each { |command| `#{command}` }
+    DBConnection.open(DB_FILE)
+  end
+
+  def self.instance
+    reset if @db.nil?
+
+    @db
+  end
 
   def self.execute(*args)
     print_query(*args)
