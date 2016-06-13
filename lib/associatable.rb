@@ -108,47 +108,6 @@ module Associatable
       target_class.parse_all(DBConnection.execute(query, id)).first
     end
 
-    # TO BE IMPLEMENTED
-    #
-    # def has_many_through(name, through_name, source_name)
-    #   # Posts has_many :tags, through: :taggings
-    #   through_options = self.class.assoc_options[through_name]
-    #   source_options = through_options.model_class.assoc_options[source_name]
-    #
-    #   define_method(name) do
-    #     target_class = source_options.class_name.constantize
-    #     target_table = source_options.class_name.constantize.table_name
-    #     target_primary = source_options.primary_key
-    #
-    #     through_class = through_options.class_name.constantize
-    #     through_table = through_options.class_name.constantize.table_name
-    #     foreign = source_options.foreign_key
-    #
-    #     query = <<-SQL
-    #       SELECT
-    #         tags.*
-    #         #{target_table}.*
-    #       FROM
-    #         tags
-    #         #{target_table}
-    #       JOIN
-    #         taggings
-    #         #{through_table}
-    #       ON
-    #         tags.id = taggings.tag_id
-    #         #{target_table}.#{target_primary} = #{through_table}.#{foreign}
-    #       JOIN
-    #         posts
-    #         #{self.class.constantize.table_name}
-    #       ON
-    #         posts.id = taggings.post_id
-    #         #{self.class.constantize.table_name}.#{}
-    #       WHERE
-    #         posts.id = #{self.id}
-    #     SQL
-    #   end
-    # end
-
   end
 
   def assoc_options
