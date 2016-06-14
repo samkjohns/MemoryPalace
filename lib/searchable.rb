@@ -14,6 +14,10 @@ module Searchable
     parse_all(DBConnection.execute(query)).first
   end
 
+  def find_by_sql(query)
+    parse_all(DBConnection.execute(query))
+  end
+
   def where(params)
     where_line_array = params.keys.map { |col| "#{col} = ?" }
     where_line = where_line_array.join(' AND ')

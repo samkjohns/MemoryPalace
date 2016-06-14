@@ -3,7 +3,7 @@ require_relative 'searchable'
 require_relative 'associatable'
 require 'active_support/inflector'
 
-class SQLObject
+class MemoryPalaceBase
 
   extend Searchable
   extend Associatable
