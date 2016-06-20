@@ -1,6 +1,6 @@
-# Memory Palace – An Object-Relational Mapping Library
+# Memory Palace
 
-Memory Palace provides an interface between a relational database and classes for Ruby applications. The library provides a class meant to be extended to provide the library's mapping conveniences. A subclass of MemoryPalaceBase represents a table in a database.
+Memory Palace is an object-relational mapping library that provides an interface between a relational database and classes for Ruby applications. The library provides a class meant to be extended to provide the library's mapping conveniences. A subclass of MemoryPalaceBase represents a table in a database.
 
 Memory Palace relies on the philosophy of convention over configuration in establishing associations between models. Mappings may be defined explicitly, but following convention by default will save the developer time.
 
