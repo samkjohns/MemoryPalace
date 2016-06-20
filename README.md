@@ -43,4 +43,27 @@ class Cat < MemoryPalaceBase
 end
 ```
 
+These allow for easy access from model to model. For example, if this represents an excerpt of our database:
+
+```
+cats
+id | name | human_id
+---+------+----------
+ 5 | Orca |   12
+
+humans
+ id | name
+----+------
+ 12 | Sam  
+```
+
+...then this becomes possible:
+
+```
+orca = Cat.find(12) # orca ==> <#Cat> object
+sam = orca.human    # sam ==> <#Human> object
+```
+
+A small sample `pokemon` SQLite3 database is included in this repository as an example.
+
 The `has_many_through` method has not yet been implemented, but will allow the mapping of a many-to-many relationship through a join table, similarly to `has_one_through`.
